@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15C34C20267F40C4007EA748 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C34C1F267F40C4007EA748 /* XcodeKit.framework */; };
+		15EC884B267F4DA6002C2BA3 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 15EC884A267F4DA6002C2BA3 /* libc++.tbd */; };
 		559B23E31D7EBDA300937AB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 559B23E21D7EBDA300937AB3 /* AppDelegate.m */; };
 		559B23E61D7EBDA300937AB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 559B23E51D7EBDA300937AB3 /* main.m */; };
 		559B23E81D7EBDA300937AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 559B23E71D7EBDA300937AB3 /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		15C34C1F267F40C4007EA748 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
+		15EC884A267F4DA6002C2BA3 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		556DCDEF1D7EF694005956C8 /* XcodeClangFormat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XcodeClangFormat.entitlements; sourceTree = "<group>"; };
 		557D38B71D7F270E00708269 /* libcurses.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcurses.tbd; path = usr/lib/libcurses.tbd; sourceTree = SDKROOT; };
 		559B23DE1D7EBDA300937AB3 /* XcodeClangFormat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XcodeClangFormat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,8 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15EC884B267F4DA6002C2BA3 /* libc++.tbd in Frameworks */,
 				55BCFFFA1D80170F000EDB05 /* libcurses.tbd in Frameworks */,
 				559B24101D7EBDC400937AB3 /* Cocoa.framework in Frameworks */,
+				15C34C20267F40C4007EA748 /* XcodeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +136,8 @@
 		559B23F71D7EBDB700937AB3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				15EC884A267F4DA6002C2BA3 /* libc++.tbd */,
+				15C34C1F267F40C4007EA748 /* XcodeKit.framework */,
 				557D38B71D7F270E00708269 /* libcurses.tbd */,
 				559B23F81D7EBDB700937AB3 /* Cocoa.framework */,
 			);
@@ -207,7 +215,6 @@
 				TargetAttributes = {
 					559B23DD1D7EBDA300937AB3 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = Y28WQ9G7N2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
@@ -220,7 +227,6 @@
 					};
 					559B240E1D7EBDC400937AB3 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = Y28WQ9G7N2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
@@ -235,6 +241,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -422,11 +429,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = XcodeClangFormat/XcodeClangFormat.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = Y28WQ9G7N2;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = XcodeClangFormat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.XcodeClangFormat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -438,11 +447,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = XcodeClangFormat/XcodeClangFormat.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = Y28WQ9G7N2;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = XcodeClangFormat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.XcodeClangFormat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -453,10 +464,11 @@
 			baseConfigurationReference = 55BCFFF71D801362000EDB05 /* config.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "clang-format/clang_format.entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = Y28WQ9G7N2;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -464,6 +476,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "clang-format/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MARKETING_VERSION = 1.0.3;
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(LLVM_CXXFLAGS)",
 					"$(OTHER_CFLAGS)",
@@ -490,10 +503,11 @@
 			baseConfigurationReference = 55BCFFF71D801362000EDB05 /* config.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "clang-format/clang_format.entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = Y28WQ9G7N2;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -501,6 +515,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "clang-format/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MARKETING_VERSION = 1.0.3;
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(LLVM_CXXFLAGS)",
 					"$(OTHER_CFLAGS)",

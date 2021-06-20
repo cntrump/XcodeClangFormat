@@ -1,41 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 set -e
-set -o pipefail
-set -u
 
-LLVM_VERSION=8.0.0
-LLVM_HASH=b3f916a6e407e00b460cdd9cd878bd46dbcf51721c0814f72e220451d7dc2181
-LLVM_CONFIG=${LLVM_CONFIG:-llvm-config}
+LLVM_CONFIG="$(pwd)/llvm/bin/llvm-config"
 
-command -v "${LLVM_CONFIG}" >/dev/null 2>&1 || {
-    PREFIX="deps/clang-${LLVM_VERSION}"
-    if [ ! -f "${PREFIX}/bin/llvm-config" ]; then
-        mkdir -p "deps"
-        FILE="deps/clang-${LLVM_VERSION}.tar.xz"
-        if [ ! -f "${FILE}" ]; then
-            URL="http://llvm.org/releases/${LLVM_VERSION}/clang+llvm-${LLVM_VERSION}-x86_64-apple-darwin.tar.xz"
-            echo "Downloading ${URL}..."
-            curl --retry 3 -# -S -L "${URL}" -o "${FILE}.tmp" && mv "${FILE}.tmp" "${FILE}"
-        fi
-        echo -n "Checking file... "
-        echo "${LLVM_HASH}  ${FILE}" | shasum -a 512256 -c
-        rm -rf "${PREFIX}"
-        mkdir -p "${PREFIX}"
-        echo -n "Unpacking archive... "
-        tar xf "${FILE}" -C "${PREFIX}" --strip-components 1
-        echo "done."
-    fi
-    LLVM_CONFIG="${PREFIX}/bin/llvm-config"
-}
-
-PREFIX="$("${LLVM_CONFIG}" --prefix)"
-case "${PREFIX}" in
-  *\ *) (>&2 echo "Error: Path to LLVM may not contain spaces: '${PREFIX}'"); exit 1 ;;
-esac
-
-echo "// Do not modify this file. Instead, rerun ./configure" > config.xcconfig
-echo "LLVM_LIBDIR=$(${LLVM_CONFIG} --libdir)" >> config.xcconfig
+echo "LLVM_LIBDIR=$(${LLVM_CONFIG} --libdir)" > config.xcconfig
 echo "LLVM_CXXFLAGS=$(${LLVM_CONFIG} --cxxflags)" >> config.xcconfig
 
 echo "Wrote config.xcconfig."
